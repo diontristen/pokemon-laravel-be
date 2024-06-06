@@ -23,8 +23,8 @@ This is a Laravel API for managing a Pokémon card collection. The API includes 
 ### Step 1: Clone the Repository
 
 ```sh
-git clone https://github.com/yourusername/pokemon-card-collection.git
-cd pokemon-card-collection
+git clone https://github.com/diontristen/pokemon-laravel-be.git
+cd pokemon-laravel-be
 ```
 
 ### Step 2: Install Dependencies
