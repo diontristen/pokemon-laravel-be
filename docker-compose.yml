@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: pokemon_laravel_be_app
+    working_dir: /var/www/app
+    ports:
+      - 8000:8000
+    volumes:
+      - .:/var/www/app
+    networks:
+      - laravel
+
+  postgres:
+    image: postgres:16.3
+    environment:
+      POSTGRES_DB: laravel
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+    volumes:
+      - pokemondb:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - laravel
+
+networks:
+  laravel:
+    driver: bridge
+
+volumes:
+  pokemondb:
+
