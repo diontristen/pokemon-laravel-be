@@ -1,14 +1,24 @@
 FROM php:8.2.0 as php
 
-RUN apt-get update -y
-RUN apt-get install -y unzip libpq-dev libcurl4-gnutls-dev
-RUN docker-php-ext-install pdo
-RUN docker-php-ext-install pdo_mysql
-RUN pecl install -o -f redis && rm -rf /tmp/pear && docker-php-ext-enable redis
+# Update and install necessary packages
+RUN apt-get update -y \
+    && apt-get install -y unzip libpq-dev libcurl4-gnutls-dev \
+    && docker-php-ext-install pdo pdo_mysql pdo_pgsql
 
-COPY --from=composer:2.3.5 /usr/bin/composer /usr/bin/composer 
+# Install and enable the redis extension
+RUN pecl install -o -f redis \
+    && rm -rf /tmp/pear \
+    && docker-php-ext-enable redis
 
+# Copy composer from the composer image
+COPY --from=composer:2.3.5 /usr/bin/composer /usr/bin/composer
+
+# Set the working directory
 WORKDIR /var/www/app
+
+# Copy the application files
 COPY . .
 
-ENTRYPOINT [ "docker/entrypoint.sh" ]
+# Set the entrypoint
+ENTRYPOINT ["docker/entrypoint.sh"]
+

@@ -17,7 +17,7 @@ class Cors
     public function handle(Request $request, Closure $next)
     {
         $response = $next($request);
-        $response->headers->set('Access-Control-Allow-Origin', env('APP_FE_URL'));
+        $response->headers->set('Access-Control-Allow-Origin', 'https://pokesaur.dionaguilar.com');
         $response->headers->set('Access-Control-Allow-Headers', 'Content-Type, X-Auth-Token, Origin, Authorization');
         return $response;
     }

@@ -19,7 +19,7 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => [env('APP_FE_URL')],
+    'allowed_origins' => ['https://pokesaur.dionaguilar.com'],
 
     'allowed_origins_patterns' => [],
 
