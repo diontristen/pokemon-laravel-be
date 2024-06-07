@@ -55,7 +55,7 @@ class PokemonController extends Controller
             'page' => $data['page'],
             'pageSize' => $data['pageSize'],
             'count' => count($data['data']),
-            'totalCount' => $data['totalCount'],
+            'total' => $data['totalCount'],
         ], 'Retrieve pokemon cards');
        
     }

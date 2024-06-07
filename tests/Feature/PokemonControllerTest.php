@@ -22,7 +22,7 @@ class PokemonControllerTest  extends TestCase
                     'success',
                     'data' => [
                         'data',
-                        'totalCount',
+                        'total',
                         'page',
                         'pageSize'
                     ]
