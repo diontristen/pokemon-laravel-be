@@ -6,7 +6,6 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Laravel\Passport\Passport;
-use App\Http\Middleware\EnsureTokenIsValid;
 
 class AppServiceProvider extends ServiceProvider
 {
